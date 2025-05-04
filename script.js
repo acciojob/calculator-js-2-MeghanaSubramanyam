@@ -1,23 +1,23 @@
-//your JS code here. If required.
 const display = document.getElementById("display");
 
 function appendToDisplay(value) {
-  display.value += value;
+  display.innerText += value;
 }
 
 function clearDisplay() {
-  display.value = "";
+  display.innerText = "";
 }
 
 function backspace() {
-  display.value = display.value.slice(0, -1);
+  display.innerText = display.innerText.slice(0, -1);
 }
 
 function calculate() {
   try {
-    display.value = eval(display.value);
+    if (display.innerText.trim() === "") return;
+    display.innerText = eval(display.innerText);
   } catch {
-    display.value = "Error";
+    display.innerText = "Error";
   }
 }
 
