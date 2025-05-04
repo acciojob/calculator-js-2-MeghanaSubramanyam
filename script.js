@@ -12,10 +12,18 @@ function backspace() {
   display.innerText = display.innerText.slice(0, -1);
 }
 
+
 function calculate() {
   try {
     if (display.innerText.trim() === "") return;
-    display.innerText = eval(display.innerText);
+
+    const result = eval(display.innerText);
+    
+    if (!isFinite(result) || isNaN(result)) {
+      display.innerText = "Error";
+    } else {
+      display.innerText = result;
+    }
   } catch {
     display.innerText = "Error";
   }
